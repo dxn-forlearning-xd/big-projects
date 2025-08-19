@@ -1,0 +1,122 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import {
+  Box,
+  Grid,
+  GridItem,
+  Text,
+  Image,
+  Skeleton,
+  SkeletonText,
+} from '@chakra-ui/react';
+import { BiGridSmall } from 'react-icons/bi';
+import categoryMap from '../../utils/categoryMap';
+
+const Categories = () => {
+  const navigate = useNavigate();
+
+  const [categoryThumbnails, setCategoryThumbnails] = useState([]);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products?limit=45')
+      .then((res) => res.json())
+      .then((data) => {
+        const allProducts = data.products;
+        const categoryThumbs = {};
+        allProducts.forEach((p) => {
+          if (!categoryThumbs[p.category]) {
+            categoryThumbs[p.category] = p.images[0];
+          }
+        });
+        setCategoryThumbnails(categoryThumbs);
+      });
+  }, []);
+
+  return (
+    <section>
+      <Text mt="10px" pl={8} color={'#123924'} fontSize="xl" fontWeight="bold">
+        分类
+      </Text>
+
+      <Grid
+        templateColumns="repeat(auto-fill, minmax(80px, 1fr))"
+        gap={6}
+        mx="auto"
+        p={4}
+      >
+        {Object.keys(categoryThumbnails).length === 0
+          ? Array.from({ length: 6 }).map((_, i) => (
+              <GridItem
+                key={i}
+                borderRadius="lg"
+                boxShadow="0 4px 12px rgba(0, 0, 0, 0.08)"
+              >
+                <Box
+                  borderRadius="lg"
+                  p={2}
+                  textAlign="center"
+                  bg="white"
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Skeleton boxSize="90px" borderRadius="md" />
+
+                  <Skeleton mt={2} h="16px" w="60px" />
+                </Box>
+              </GridItem>
+            ))
+          : Object.entries(categoryThumbnails).map(([cat, thumb]) => {
+              const chineseName = categoryMap[cat] || cat;
+              return (
+                <GridItem
+                  key={cat}
+                  borderRadius="lg"
+                  boxShadow="0 4px 12px rgba(0, 0, 0, 0.08)"
+                >
+                  <Box
+                    borderRadius="lg"
+                    p={2}
+                    textAlign="center"
+                    bg="white"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    onClick={() => navigate(`/category/${cat}`)}
+                  >
+                    <Image src={thumb} boxSize="90px" />
+                    <Text mt={1}>{chineseName}</Text>
+                  </Box>
+                </GridItem>
+              );
+            })}
+
+        <GridItem
+          key="more"
+          borderRadius="lg"
+          boxShadow="0 4px 12px rgba(0, 0, 0, 0.08)"
+        >
+          <Box
+            borderRadius="lg"
+            p={2}
+            textAlign="center"
+            bg="white"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            onClick={() => navigate('/categories')}
+          >
+            <BiGridSmall size={90} color="#0a3e20" />
+            <Text mt={1}>更多</Text>
+          </Box>
+        </GridItem>
+      </Grid>
+    </section>
+  );
+};
+
+export default Categories;

@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+body {
+  background-color: #eff6f9;
+}
+.font-en {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.font-jp {
+  font-family: 'Noto Sans JP', serif;
+}
+html {
+  scroll-behavior: smooth;
+}

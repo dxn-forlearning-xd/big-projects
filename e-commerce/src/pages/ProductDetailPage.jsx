@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from 'react';
+import { Box, VStack, Skeleton, SkeletonText } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
+
+import HeaderBar from '../components/product/HeaderBar';
+import ImageGallery from '../components/product/ImageGallery';
+import TitleMeta from '../components/product/TitleMeta';
+import PriceBlock from '../components/product/PriceBlock';
+import DescriptionBlock from '../components/product/DescriptionBlock';
+import ReviewsList from '../components/product/ReviewsList';
+import AddToCartBar from '../components/product/AddToCartBar';
+
+export default function ProductDetailPage() {
+  const { id = 1 } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://dummyjson.com/products/${id}`)
+      .then((res) => res.json())
+      .then(setProduct)
+      .catch(() => setProduct(null));
+  }, [id]);
+
+  return (
+    <Box maxW="420px" mx="auto" minH="100dvh" bg="gray.200" pb="88px">
+      <HeaderBar title="Details" />
+      {!product ? (
+        <Box p={4}>
+          <Skeleton h="220px" borderRadius="lg" />
+          <SkeletonText mt={4} noOfLines={3} spacing="3" />
+          <Skeleton mt={3} h="24px" w="40%" />
+        </Box>
+      ) : (
+        <VStack align="stretch" spacing={4} p={4}>
+          <ImageGallery images={product.images || [product.thumbnail]} />
+          <TitleMeta
+            title={product.title}
+            brand={product.brand}
+            rating={product.rating}
+            stock={product.stock}
+          />
+          <PriceBlock
+            price={product.price}
+            discountPercentage={product.discountPercentage}
+          />
+          <DescriptionBlock
+            description={product.description}
+            shippingInfo={product.shippingInformation}
+            warrantyInfo={product.warrantyInformation}
+            availability={product.availabilityStatus}
+          />
+          <ReviewsList reviews={product.reviews || []} />
+        </VStack>
+      )}
+      <AddToCartBar product={product} />
+    </Box>
+  );
+}
