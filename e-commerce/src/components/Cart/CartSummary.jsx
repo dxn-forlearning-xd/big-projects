@@ -1,10 +1,12 @@
 import { Box, VStack, HStack, Text, Button, Input } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { Toaster, toaster } from '../../components/ui/toaster';
 
 function CartSummary() {
   const navigate = useNavigate();
   const { items, subtotal } = useCart();
+  const { items: cartItems } = useCart();
 
   const total =
     typeof subtotal === 'number'
@@ -12,6 +14,20 @@ function CartSummary() {
       : (items ?? []).reduce((sum, i) => sum + i.price * i.qty, 0);
 
   const count = items?.length ?? 0;
+
+  const handleClick = () => {
+    if (cartItems.length === 0) {
+      toaster.create({
+        description: '购物车内没有物品',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+        position: 'top',
+      });
+    } else {
+      navigate('/checkout');
+    }
+  };
 
   return (
     <Box
@@ -36,7 +52,7 @@ function CartSummary() {
           color="white"
           size="lg"
           borderRadius="full"
-          onClick={() => navigate('/checkout')}
+          onClick={handleClick}
           isDisabled={count === 0}
         >
           去付款

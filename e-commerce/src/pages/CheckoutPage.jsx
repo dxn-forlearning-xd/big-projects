@@ -4,6 +4,7 @@ import { Box, VStack, HStack, Text, Image, Button } from '@chakra-ui/react';
 import { useCart } from '../context/CartContext';
 import BottomNav from '../components/BottomNav';
 import PageHeader from '../components/PageHeader';
+import { Toaster, toaster } from '../components/ui/toaster';
 
 export default function CheckoutPage() {
   const location = useLocation();
@@ -18,11 +19,11 @@ export default function CheckoutPage() {
   const total = items.reduce((s, it) => s + it.price * it.qty, 0);
 
   const handlePay = () => {
-    if (mode === 'buy-now') {
-    } else {
+    if (mode !== 'buy-now') {
       clearCart();
     }
     navigate('/');
+    toaster.success({ title: '付款成功' });
   };
 
   return (

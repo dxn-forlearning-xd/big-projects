@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchWithTimeoutAndFallback } from '../../utils/api';
 
 import {
   Box,
@@ -19,18 +20,20 @@ const Categories = () => {
   const [categoryThumbnails, setCategoryThumbnails] = useState([]);
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=45')
-      .then((res) => res.json())
-      .then((data) => {
-        const allProducts = data.products;
-        const categoryThumbs = {};
-        allProducts.forEach((p) => {
-          if (!categoryThumbs[p.category]) {
-            categoryThumbs[p.category] = p.images[0];
-          }
-        });
-        setCategoryThumbnails(categoryThumbs);
+    fetchWithTimeoutAndFallback(
+      'https://dummyjson.com/products?limit=45',
+      '/products-fallback.json',
+      { timeout: 5000 }
+    ).then((data) => {
+      const allProducts = data.products;
+      const categoryThumbs = {};
+      allProducts.forEach((p) => {
+        if (!categoryThumbs[p.category]) {
+          categoryThumbs[p.category] = p.images[0];
+        }
       });
+      setCategoryThumbnails(categoryThumbs);
+    });
   }, []);
 
   return (

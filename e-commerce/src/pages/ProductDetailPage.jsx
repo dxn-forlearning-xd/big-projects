@@ -9,14 +9,18 @@ import PriceBlock from '../components/product/PriceBlock';
 import DescriptionBlock from '../components/product/DescriptionBlock';
 import ReviewsList from '../components/product/ReviewsList';
 import AddToCartBar from '../components/product/AddToCartBar';
+import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 export default function ProductDetailPage() {
   const { id = 1 } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
-      .then((res) => res.json())
+    fetchWithTimeoutAndFallback(
+      `https://dummyjson.com/products/${id}`,
+      '/products-by-id-fallback.json',
+      { timeout: 5000 }
+    )
       .then(setProduct)
       .catch(() => setProduct(null));
   }, [id]);

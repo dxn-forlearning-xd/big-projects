@@ -14,24 +14,27 @@ import {
 import { FiArrowLeft } from 'react-icons/fi';
 import BottomNav from '../components/BottomNav';
 import categoryMap from '../utils/categoryMap';
+import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 const AllCategoriesPage = () => {
   const navigate = useNavigate();
   const [categoryThumbs, setCategoryThumbs] = useState({});
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=200')
-      .then((res) => res.json())
-      .then((data) => {
-        const allProducts = data.products;
-        const thumbs = {};
-        allProducts.forEach((p) => {
-          if (!thumbs[p.category]) {
-            thumbs[p.category] = p.images[0];
-          }
-        });
-        setCategoryThumbs(thumbs);
+    fetchWithTimeoutAndFallback(
+      'https://dummyjson.com/products?limit=200',
+      '/products-fallback.json',
+      { timeout: 5000 }
+    ).then((data) => {
+      const allProducts = data.products;
+      const thumbs = {};
+      allProducts.forEach((p) => {
+        if (!thumbs[p.category]) {
+          thumbs[p.category] = p.images[0];
+        }
       });
+      setCategoryThumbs(thumbs);
+    });
   }, []);
 
   return (

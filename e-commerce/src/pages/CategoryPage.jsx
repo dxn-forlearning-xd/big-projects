@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { FiArrowLeft } from 'react-icons/fi';
 import categoryMap from '../utils/categoryMap';
+import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 const CategoryPage = () => {
   const { slug } = useParams();
@@ -22,12 +23,14 @@ const CategoryPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://dummyjson.com/products/category/${slug}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data.products || []);
-        setLoading(false);
-      });
+    fetchWithTimeoutAndFallback(
+      `https://dummyjson.com/products/category/${slug}`,
+      '/products-by-category-fallback.json',
+      { timeout: 5000 }
+    ).then((data) => {
+      setProducts(data.products || []);
+      setLoading(false);
+    });
   }, [slug]);
 
   return (

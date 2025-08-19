@@ -3,6 +3,7 @@ import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { Box, VStack, HStack, Text, Image } from '@chakra-ui/react';
 import BottomNav from '../components/BottomNav';
 import PageHeader from '../components/PageHeader';
+import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 export default function SearchPage() {
   const location = useLocation();
@@ -14,9 +15,11 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (!keyword) return;
-    fetch(`https://dummyjson.com/products/search?q=${keyword}`)
-      .then((res) => res.json())
-      .then((data) => setResults(data.products || []));
+    fetchWithTimeoutAndFallback(
+      `https://dummyjson.com/products/search?q=${keyword}`,
+      '/products-search-fallback.json',
+      { timeout: 5000 }
+    ).then((data) => setResults(data.products || []));
   }, [keyword]);
 
   return (

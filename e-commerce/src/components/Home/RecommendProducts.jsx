@@ -11,6 +11,7 @@ import {
   SkeletonText,
   Spinner,
 } from '@chakra-ui/react';
+import { fetchWithTimeoutAndFallback } from '../../utils/api';
 
 const RecommendProducts = () => {
   const navigate = useNavigate();
@@ -30,14 +31,15 @@ const RecommendProducts = () => {
   const loaderRef = useRef(null);
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=100')
-      .then((res) => res.json())
-      .then((data) => {
-        const shuffled = shuffleArray(data.products);
-        setProducts(shuffled);
-      });
+    fetchWithTimeoutAndFallback(
+      'https://dummyjson.com/products?limit=100',
+      '/products-fallback.json',
+      { timeout: 5000 }
+    ).then((data) => {
+      const shuffled = shuffleArray(data.products);
+      setProducts(shuffled);
+    });
   }, []);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
