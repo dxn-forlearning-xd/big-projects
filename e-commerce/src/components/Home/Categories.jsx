@@ -38,7 +38,15 @@ const Categories = () => {
 
   return (
     <section>
-      <Text mt="10px" pl={8} color={'#123924'} fontSize="xl" fontWeight="bold">
+      <Text
+        mt="10px"
+        pl={8}
+        color={'#123924'}
+        fontSize="xl"
+        fontWeight="bold"
+        maxW="420px"
+        mx="auto"
+      >
         分类
       </Text>
 
@@ -47,6 +55,7 @@ const Categories = () => {
         gap={6}
         mx="auto"
         p={4}
+        maxW="420px"
       >
         {Object.keys(categoryThumbnails).length === 0
           ? Array.from({ length: 6 }).map((_, i) => (

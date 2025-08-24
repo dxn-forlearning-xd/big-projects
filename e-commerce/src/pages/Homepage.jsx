@@ -5,7 +5,7 @@ import Header from '../components/Home/Header';
 import Slider from '../components/Home/Slider';
 import Categories from '../components/Home/Categories';
 import RecommendProducts from '../components/Home/RecommendProducts';
-import BottomNav from '../components/BottomNav';
+import BottomNav from '../components/global/BottomNav';
 
 const Homepage = () => {
   return (

@@ -14,6 +14,7 @@ import {
 import { FiArrowLeft } from 'react-icons/fi';
 import categoryMap from '../utils/categoryMap';
 import { fetchWithTimeoutAndFallback } from '../utils/api';
+import BottomNav from '../components/global/BottomNav';
 
 const CategoryPage = () => {
   const { slug } = useParams();
@@ -43,6 +44,8 @@ const CategoryPage = () => {
         zIndex="1000"
         position="Sticky"
         top={0}
+        maxW="420px"
+        mx="auto"
       >
         <IconButton onClick={() => navigate(-1)}>
           <FiArrowLeft />
@@ -52,8 +55,13 @@ const CategoryPage = () => {
         </Text>
       </HStack>
 
-      <Box p={4}>
-        <Grid templateColumns="repeat(auto-fill, minmax(140px, 1fr))" gap={6}>
+      <Box p={4} bg="gray.50" minH="100vh" width="420px" mx="auto">
+        <Grid
+          templateColumns="repeat(auto-fill, minmax(140px, 1fr))"
+          gap={6}
+          maxW="400px"
+          mx="auto"
+        >
           {loading
             ? Array.from({ length: 8 }).map((_, i) => (
                 <Skeleton key={i} height="180px" borderRadius="md" />
@@ -85,6 +93,8 @@ const CategoryPage = () => {
               ))}
         </Grid>
       </Box>
+
+      <BottomNav></BottomNav>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import PageHeader from '../PageHeader';
+import PageHeader from '../global/PageHeader';
 
 function CartHeader() {
   return (

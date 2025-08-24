@@ -20,7 +20,7 @@ function CartList() {
     <Box maxW="420px" bg="gray.50" mb="100px">
       <VStack spacing={4} p={4} align="stretch">
         {items.length === 0 ? (
-          <Box bg="white" p={6} borderRadius="md" textAlign="center">
+          <Box p={6} borderRadius="md" textAlign="center">
             购物车是空的
           </Box>
         ) : (

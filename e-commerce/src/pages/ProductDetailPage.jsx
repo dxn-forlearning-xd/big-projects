@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
   }, [id]);
 
   return (
-    <Box maxW="420px" mx="auto" minH="100dvh" bg="gray.200" pb="88px">
+    <Box maxW="420px" mx="auto" minH="100dvh" bg="gray.100" pb="88px">
       <HeaderBar title="Details" />
       {!product ? (
         <Box p={4}>

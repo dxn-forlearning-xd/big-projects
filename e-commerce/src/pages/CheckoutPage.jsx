@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, VStack, HStack, Text, Image, Button } from '@chakra-ui/react';
 import { useCart } from '../context/CartContext';
-import BottomNav from '../components/BottomNav';
-import PageHeader from '../components/PageHeader';
+import BottomNav from '../components/global/BottomNav';
+import PageHeader from '../components/global/PageHeader';
 import { Toaster, toaster } from '../components/ui/toaster';
 
 export default function CheckoutPage() {

@@ -1,4 +1,7 @@
-body {
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   background: #f0f0f1;
-  color: black;
+  color: rgb(43, 43, 43);
 }

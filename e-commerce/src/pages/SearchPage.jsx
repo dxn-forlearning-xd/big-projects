@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { Box, VStack, HStack, Text, Image } from '@chakra-ui/react';
-import BottomNav from '../components/BottomNav';
-import PageHeader from '../components/PageHeader';
+import BottomNav from '../components/global/BottomNav';
+import PageHeader from '../components/global/PageHeader';
 import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 export default function SearchPage() {

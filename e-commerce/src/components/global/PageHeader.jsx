@@ -28,6 +28,8 @@ const PageHeader = ({ PageTitle }) => {
       zIndex="1000"
       position="Sticky"
       top={0}
+      maxW="420px"
+      mx="auto"
     >
       <IconButton onClick={handleBack}>
         <FiArrowLeft />

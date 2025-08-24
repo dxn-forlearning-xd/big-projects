@@ -68,10 +68,18 @@ const RecommendProducts = () => {
 
   return (
     <>
-      <Text mt="10px" pl={8} color={'#123924'} fontSize="xl" fontWeight="bold">
+      <Text
+        mt="10px"
+        pl={8}
+        color={'#123924'}
+        fontSize="xl"
+        fontWeight="bold"
+        maxW="420px"
+        mx="auto"
+      >
         商品推荐
       </Text>
-      <Box mb="80px">
+      <Box mb="80px" maxW="430px" mx="auto">
         <Grid templateColumns="repeat(2, 1fr)">
           {products.length === 0 ? (
             <>

@@ -9,10 +9,9 @@ import {
   Skeleton,
   HStack,
   IconButton,
-  Sticky,
 } from '@chakra-ui/react';
 import { FiArrowLeft } from 'react-icons/fi';
-import BottomNav from '../components/BottomNav';
+import BottomNav from '../components/global/BottomNav';
 import categoryMap from '../utils/categoryMap';
 import { fetchWithTimeoutAndFallback } from '../utils/api';
 
@@ -47,6 +46,8 @@ const AllCategoriesPage = () => {
         zIndex="1000"
         position="Sticky"
         top={0}
+        maxW="420px"
+        mx="auto"
       >
         <IconButton onClick={() => navigate(-1)}>
           <FiArrowLeft />
@@ -55,7 +56,7 @@ const AllCategoriesPage = () => {
           全部分类
         </Text>
       </HStack>
-      <Box p={4} mb="80px">
+      <Box p={4} mb="80px" maxW="420px" mx="auto" bg="gray.50" minH="100vh">
         <Grid templateColumns="repeat(auto-fill, minmax(100px, 1fr))" gap={6}>
           {Object.keys(categoryThumbs).length === 0
             ? Array.from({ length: 12 }).map((_, i) => (
