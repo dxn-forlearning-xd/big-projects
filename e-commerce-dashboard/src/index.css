@@ -1,0 +1,24 @@
+html,
+body,
+#root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #292828;
+  color: white;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+::-webkit-scrollbar-thum {
+  background: #888;
+}
+::-webkit-scrollbar-track:hover {
+  background: #555;
+}

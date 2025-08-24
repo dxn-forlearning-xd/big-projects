@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBox {
+  display: flex;
+  background-color: rgb(52, 52, 52);
+}
+
+.input {
+  display: flex;
+  flex: 1;
+  background-color: rgb(52, 52, 52);
+  border-color: transparent;
+  border-radius: 0;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.btn {
+  background-color: transparent;
+  border: transparent;
+  color: white;
+  border-radius: 0;
+}
