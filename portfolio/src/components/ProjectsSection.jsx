@@ -14,19 +14,20 @@ const projects = [
     stack: ['React', 'Ant Design', 'Nivo Chart'],
   },
   {
-    title: '官网宣传网页',
-    img: '/imgs/agency-landing-page.png',
-    demo: 'https://your-live-demo-link.com',
-    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/07-Agency%20landing%20page',
-    stack: ['HTML', 'CSS'],
-  },
-  {
     title: '众筹页面',
     img: '/imgs/crowdfunding-product-page.png',
     demo: 'https://dxn-dashboard-xd.netlify.app/',
     repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/08-Crowdfunding%20product%20page',
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
+  {
+    title: '官网宣传网页',
+    img: '/imgs/agency-landing-page.png',
+    demo: 'https://your-live-demo-link.com',
+    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/07-Agency%20landing%20page',
+    stack: ['HTML', 'CSS'],
+  },
+
   {
     title: '购物页面',
     img: '/imgs/product-list-with-cart.png',
@@ -56,11 +57,13 @@ const ProjectsSection = ({ language }) => {
             key={index}
             className="bg-[#ffffff] p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300"
           >
-            <img
-              className="w-full rounded-md"
-              src={project.img}
-              alt={project.title}
-            />
+            <div className="w-full h-80 overflow-hidden">
+              <img
+                className="w-full  rounded-md"
+                src={project.img}
+                alt={project.title}
+              />
+            </div>
 
             <p className="mt-4 flex justify-center text-gray-700">
               {project.title}
