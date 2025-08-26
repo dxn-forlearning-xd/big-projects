@@ -1,14 +1,14 @@
 const projects = [
   {
     title: '电商购物平台',
-    img: '/imgs/amazon-clone.png',
+    img: '/imgs/e-commerce.png',
     demo: 'https://your-live-demo-link.com',
     repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce',
     stack: ['React', 'Chakra UI'],
   },
   {
     title: '电商后台数据管理',
-    img: '/imgs/amazon-clone.png',
+    img: '/imgs/e-commerce-dashboard.png',
     demo: 'https://your-live-demo-link.com',
     repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce-dashboard',
     stack: ['React', 'Ant Design', 'Nivo Chart'],
@@ -57,7 +57,7 @@ const ProjectsSection = ({ language }) => {
             key={index}
             className="bg-[#ffffff] p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300"
           >
-            <div className="w-full h-80 overflow-hidden">
+            <div className="w-full h-90 flex items-center justify-center overflow-hidden">
               <img
                 className="w-full  rounded-md"
                 src={project.img}
