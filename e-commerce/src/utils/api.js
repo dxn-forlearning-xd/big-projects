@@ -14,6 +14,6 @@ export async function fetchWithTimeoutAndFallback(
     clearTimeout(id);
     console.warn('Remote fetch failed, fallback to local JSON', err);
     const res = await fetch('/products-fallback.json');
-    return await res.json(); // 返回 { products: [...] }
+    return await res.json();
   }
 }
