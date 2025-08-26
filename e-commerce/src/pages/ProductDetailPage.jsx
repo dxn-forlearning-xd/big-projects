@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Box, VStack, Skeleton, SkeletonText } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 
-import HeaderBar from '../components/product/HeaderBar';
-import ImageGallery from '../components/product/ImageGallery';
-import TitleMeta from '../components/product/TitleMeta';
-import PriceBlock from '../components/product/PriceBlock';
-import DescriptionBlock from '../components/product/DescriptionBlock';
-import ReviewsList from '../components/product/ReviewsList';
-import AddToCartBar from '../components/product/AddToCartBar';
+import HeaderBar from '../components/Product/HeaderBar';
+import ImageGallery from '../components/Product/ImageGallery';
+import TitleMeta from '../components/Product/TitleMeta';
+import PriceBlock from '../components/Product/PriceBlock';
+import DescriptionBlock from '../components/Product/DescriptionBlock';
+import ReviewsList from '../components/Product/ReviewsList';
+import AddToCartBar from '../components/Product/AddToCartBar';
 import { fetchWithTimeoutAndFallback } from '../utils/api';
 
 export default function ProductDetailPage() {
