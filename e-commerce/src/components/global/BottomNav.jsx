@@ -20,7 +20,7 @@ const BottomNav = () => {
       bg="white"
       borderTop="1px solid #eaeaea"
       zIndex="1000"
-      maxW="420px"
+      maxW="400px"
       mx="auto"
     >
       <Flex justify="space-around" align="center" p={2}>

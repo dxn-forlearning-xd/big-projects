@@ -9,13 +9,13 @@ import BottomNav from '../components/global/BottomNav';
 
 const Homepage = () => {
   return (
-    <>
+    <Box p={4} maxW="400px" mx="auto" bg="gray.50">
       <Header></Header>
       <Slider></Slider>
       <Categories></Categories>
       <RecommendProducts></RecommendProducts>
       <BottomNav></BottomNav>
-    </>
+    </Box>
   );
 };
 

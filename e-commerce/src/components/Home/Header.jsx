@@ -21,7 +21,7 @@ const Header = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      maxW="400px"
+      maxW="420px"
       mx="auto"
       py={4}
       bg="#ffffff"
