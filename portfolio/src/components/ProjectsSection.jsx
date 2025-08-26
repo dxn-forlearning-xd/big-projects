@@ -1,31 +1,45 @@
 const projects = [
   {
-    title: 'Amazon Clone',
+    title: '电商购物平台',
     img: '/imgs/amazon-clone.png',
     demo: 'https://your-live-demo-link.com',
-    repo: 'https://github.com/your-repo-link',
-    stack: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    title: 'Dashboard',
-    img: '/imgs/dashboard.png',
-    demo: 'https://dxn-dashboard-xd.netlify.app/',
-    repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/dashboard',
-    stack: ['React', 'Tailwind'],
-  },
-  {
-    title: 'Instagram Clone',
-    img: '/imgs/instagram-clone.png',
-    demo: 'https://your-live-demo-link.com',
-    repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/Instagram-clone',
+    repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce',
     stack: ['React', 'Chakra UI'],
   },
   {
-    title: 'Recipe',
-    img: '/imgs/recipe.png',
+    title: '电商后台数据管理',
+    img: '/imgs/amazon-clone.png',
     demo: 'https://your-live-demo-link.com',
-    repo: 'https://github.com/your-repo-link',
-    stack: ['React', 'Tailwind'],
+    repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce-dashboard',
+    stack: ['React', 'Ant Design', 'Nivo Chart'],
+  },
+  {
+    title: '官网宣传网页',
+    img: '/imgs/agency-landing-page.png',
+    demo: 'https://your-live-demo-link.com',
+    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/07-Agency%20landing%20page',
+    stack: ['HTML', 'CSS'],
+  },
+  {
+    title: '众筹页面',
+    img: '/imgs/crowdfunding-product-page.png',
+    demo: 'https://dxn-dashboard-xd.netlify.app/',
+    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/08-Crowdfunding%20product%20page',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    title: '购物页面',
+    img: '/imgs/product-list-with-cart.png',
+    demo: 'https://your-live-demo-link.com',
+    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/01-product%20list%20with%20cart',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    title: '小费计算器',
+    img: '/imgs/tip-calculator-app.png',
+    demo: 'https://your-live-demo-link.com',
+    repo: 'https://github.com/dxn-forlearning-xd/js-projects/tree/main/06-Tip%20calculator%20app',
+    stack: ['HTML', 'CSS', 'JavaScript'],
   },
 ];
 
@@ -33,7 +47,7 @@ const ProjectsSection = ({ language }) => {
   return (
     <section id="projects" className="py-20 bg-[#eff6f9]">
       <h1 className="text-4xl font-bold text-center text-[#162F64]">
-        {language === 'en' ? 'Projects' : 'プロジェクト'}
+        {language === 'en' ? 'Projects' : '项目'}
       </h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 mt-10">
@@ -59,7 +73,7 @@ const ProjectsSection = ({ language }) => {
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-[#72B6C2] text-white rounded-md hover:bg-[#5AA4B2] transition"
               >
-                {language === 'en' ? 'Live Demo' : 'ライブデモ'}
+                {language === 'en' ? 'Live Demo' : '项目展示'}
               </a>
 
               <a

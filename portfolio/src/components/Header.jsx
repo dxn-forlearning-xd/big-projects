@@ -3,18 +3,18 @@ import { useEffect } from 'react';
 const Header = ({ language, setLanguage }) => {
   const navigate = useNavigate();
   useEffect(() => {
-    document.documentElement.classList.remove('font-en', 'font-jp');
+    document.documentElement.classList.remove('font-en', 'font-ch');
     document.documentElement.classList.add(
-      language === 'en' ? 'font-en' : 'font-jp'
+      language === 'en' ? 'font-en' : 'font-ch'
     );
   }, [language]);
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'ja' : 'en';
     setLanguage(newLang);
 
-    document.documentElement.classList.remove('font-en', 'font-jp');
+    document.documentElement.classList.remove('font-en', 'font-ch');
     document.documentElement.classList.add(
-      newLang === 'en' ? 'font-en' : 'font-jp'
+      newLang === 'en' ? 'font-en' : 'font-ch'
     );
   };
   return (
@@ -27,21 +27,21 @@ const Header = ({ language, setLanguage }) => {
           className="hover:text-gray-800 hover:scale-115 transition "
           onClick={() => navigate('/')}
         >
-          {language === 'en' ? 'Home' : 'ホーム'}
+          {language === 'en' ? 'Home' : '首页'}
         </a>
         <a
           href="#skills"
           className="hover:text-gray-800 hover:scale-115 transition"
           onClick={() => navigate('/')}
         >
-          {language === 'en' ? 'Skills' : '技術'}
+          {language === 'en' ? 'Skills' : '技能'}
         </a>
         <a
           href="#projects"
           className="hover:text-gray-800 hover:scale-115 transition"
           onClick={() => navigate('/')}
         >
-          {language === 'en' ? 'Projects' : 'プロジェクト'}
+          {language === 'en' ? 'Projects' : '项目'}
         </a>
       </nav>
 
@@ -77,7 +77,7 @@ const Header = ({ language, setLanguage }) => {
           className="px-4 py-2 rounded-md border border-white hover:bg-white hover:text-[#5AA4B2] transition cursor-pointer "
           onClick={() => navigate('/about')}
         >
-          {language === 'en' ? 'About Me' : '私について'}
+          {language === 'en' ? 'About Me' : '关于我'}
         </button>
         <button
           className="p-2 rounded-full border border-white bg-white transition cursor-pointer hover:scale-105 "

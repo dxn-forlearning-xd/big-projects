@@ -1,6 +1,5 @@
 const skills = [
   { name: 'JavaScript', img: '/imgs/javascript.png' },
-  { name: 'TypeScript', img: '/imgs/typescript.png' },
   { name: 'HTML', img: '/imgs/html.png' },
   { name: 'CSS', img: '/imgs/css.png' },
   { name: 'React', img: '/imgs/react.png' },
@@ -16,7 +15,7 @@ const SkillsSection = ({ language }) => {
     >
       <h1 className="text-4xl font-bold mb-10 text-[#162F64]">
         {' '}
-        {language === 'en' ? 'My Tech Stack' : '技術スタック'}
+        {language === 'en' ? 'My Tech Stack' : '技能'}
       </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">

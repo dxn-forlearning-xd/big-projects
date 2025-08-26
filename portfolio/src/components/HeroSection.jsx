@@ -15,19 +15,17 @@ const HeroSection = ({ language }) => {
       </div>
 
       <h1 className="text-5xl font-bold bg-[#fdf2e1] text-[#215F75]">
-        {language === 'en'
-          ? "Hi, I'm Xiaonan Dong"
-          : 'こんにちは、私は董笑楠です'}
+        {language === 'en' ? "Hi, I'm Xiaonan Dong" : '你好，我是董笑楠'}
       </h1>
       <p className="max-w-2xl text-center text-lg">
         {language === 'en'
-          ? 'Transitioning into frontend development with hands-on practice in JavaScript and responsive design. Currently working on full-stack tutorials to deepen understanding of React and backend integration.'
-          : '情熱的なフロントエンド開発者で、美しくレスポンシブなデザインを作成します。'}
+          ? 'Transitioning into frontend development with hands-on practice in JavaScript and responsive design.'
+          : '对前端开发具有热情，熟练运用HTML/CSS/JavaScript/React。'}
       </p>
 
       <div className="flex gap-10">
         <button className="px-8 py-4 rounded-full bg-[#5AA4B2] text-white hover:bg-[#72B6C2] transition cursor-pointer ">
-          {language === 'en' ? 'VIEW MY CV' : '私の履歴書を見る'}
+          {language === 'en' ? 'VIEW MY CV' : '查看简历'}
         </button>
         <a
           className="w-12 h-12 pt-1 hover:scale-105 transition"
@@ -38,14 +36,13 @@ const HeroSection = ({ language }) => {
         </a>
       </div>
       <div>
-        <p
+        <a
+          href="#projects"
           className="text-gray-500 hover:text-gray-400 transition cursor-pointer"
           onClick={() => Navigate('/')}
         >
-          {language === 'en'
-            ? 'Check out my recent work ↓'
-            : '私の履歴書を見る'}
-        </p>
+          {language === 'en' ? 'Check out my recent work ↓' : '查看最近作品'}
+        </a>
       </div>
     </section>
   );
