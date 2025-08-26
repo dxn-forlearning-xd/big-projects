@@ -7,7 +7,6 @@ body,
   box-sizing: border-box;
   background-color: #292828;
   color: white;
-  overflow: hidden;
 }
 
 ::-webkit-scrollbar {

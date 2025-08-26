@@ -5,8 +5,8 @@ import userImg from '../assets/user.png';
 import {
   HomeOutlined,
   TeamOutlined,
+  ShoppingCartOutlined,
   AppstoreOutlined,
-  ProfileOutlined,
   PieChartOutlined,
   BarChartOutlined,
   LineChartOutlined,
@@ -56,7 +56,7 @@ function SideBar() {
             style={{ borderRadius: '50%' }}
           />
           <Typography.Title level={3} style={{ color: 'white' }}>
-            名字
+            姓名
           </Typography.Title>
           <Typography style={{ color: '#74d361ff' }} type="secondary">
             管理员
@@ -71,32 +71,28 @@ function SideBar() {
         defaultSelectedKeys={['/']}
         style={{ height: '100%', borderRight: 0 }}
       >
-        <Menu.Item key="/" icon={<HomeOutlined />}>
-          <Link to="/">首页</Link>
-        </Menu.Item>
-
         <Divider style={{ margin: '8px 0', backgroundColor: '#5b636dff' }} />
 
-        <Menu.Item key="/products" icon={<AppstoreOutlined />}>
-          <Link to="/products">商品管理</Link>
+        <Menu.Item key="/inventory" icon={<AppstoreOutlined />}>
+          <Link to="/">库存管理</Link>
         </Menu.Item>
         <Menu.Item key="/contacts" icon={<TeamOutlined />}>
           <Link to="/contacts">顾客信息</Link>
         </Menu.Item>
-        <Menu.Item key="/orders" icon={<ProfileOutlined />}>
+        <Menu.Item key="/orders" icon={<ShoppingCartOutlined />}>
           <Link to="/orders">订单管理</Link>
         </Menu.Item>
 
         <Divider style={{ margin: '8px 0', backgroundColor: '#5b636dff' }} />
 
         <Menu.Item key="/barchart" icon={<BarChartOutlined />}>
-          <Link to="/barchart">条型图</Link>
+          <Link to="/barchart">库存数据</Link>
         </Menu.Item>
         <Menu.Item key="/piechart" icon={<PieChartOutlined />}>
-          <Link to="/piechart">饼状图</Link>
+          <Link to="/piechart">支付方式比例</Link>
         </Menu.Item>
         <Menu.Item key="/linechart" icon={<LineChartOutlined />}>
-          <Link to="/linechart">线型图</Link>
+          <Link to="/linechart">收益趋势</Link>
         </Menu.Item>
       </Menu>
     </Sider>

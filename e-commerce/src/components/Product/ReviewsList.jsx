@@ -14,7 +14,7 @@ function ReviewsList({ reviews = [] }) {
             bg="white"
             p={4}
             borderRadius="md"
-            boxShadow="0 4px 12px rgba(0, 0, 0, 0.08)"
+            boxShadow="0 4px 12px rgba(0, 0, 0, 0.06)"
           >
             <Text fontSize="sm" fontWeight="medium">
               {r.reviewerName} ({r.rating}★)

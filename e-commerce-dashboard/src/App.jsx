@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Dashboard from './scenes/Dashboard';
-import TopBar from './global/TopBar';
 import SideBar from './global/SideBar';
-import Products from './scenes/Products';
+import Inventory from './scenes/Inventory';
 import Orders from './scenes/Orders';
 import Contacts from './scenes/Contacts';
 import BarChart from './scenes/BarChart';
@@ -25,12 +23,9 @@ function App() {
             margin: '20px',
           }}
         >
-          <TopBar />
-
           <div>
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
+              <Route path="/" element={<Inventory />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/barchart" element={<BarChart />} />
