@@ -11,7 +11,7 @@ const SkillsSection = ({ language }) => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center py-20 bg-[#eff6f9]"
+      className="flex flex-col items-center py-20 mx-2 bg-[#eff6f9]"
     >
       <h1 className="text-4xl font-bold mb-10 text-[#162F64]">
         {' '}

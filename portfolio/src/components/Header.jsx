@@ -18,7 +18,7 @@ const Header = ({ language, setLanguage }) => {
     );
   };
   return (
-    <header className="bg-[#5AA4B2] w-full fixed top-0 left-0 z-50 flex justify-between items-center px-10 py-4 text-white shadow-md">
+    <header className="bg-[#5AA4B2] w-full fixed top-0 left-0 z-50 flex justify-between items-center px-4 md:px-10 py-3 md:py-4 text-white shadow-md">
       <h2 className="font-bold text-xl">Portfolio</h2>
 
       <nav className="ml-20 hidden md:flex gap-8">
@@ -72,7 +72,7 @@ const Header = ({ language, setLanguage }) => {
         </a>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 ml-1">
         <button
           className="px-4 py-2 rounded-md border border-white hover:bg-white hover:text-[#5AA4B2] transition cursor-pointer "
           onClick={() => navigate('/about')}
