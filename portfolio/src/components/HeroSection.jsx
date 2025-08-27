@@ -24,9 +24,14 @@ const HeroSection = ({ language }) => {
       </p>
 
       <div className="flex gap-10">
-        <button className="px-8 py-4 rounded-full bg-[#5AA4B2] text-white hover:bg-[#72B6C2] transition cursor-pointer ">
+        <a
+          href="/CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-8 py-4 rounded-full bg-[#5AA4B2] text-white hover:bg-[#72B6C2] transition cursor-pointer "
+        >
           {language === 'en' ? 'VIEW MY CV' : '查看简历'}
-        </button>
+        </a>
         <a
           className="w-12 h-12 pt-1 hover:scale-105 transition"
           href="https://github.com/dxn-forlearning-xd"
