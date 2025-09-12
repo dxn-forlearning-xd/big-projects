@@ -2,11 +2,13 @@ import { Box, VStack, HStack, Text, Button, Input } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { Toaster, toaster } from '../../components/ui/toaster';
+import { useAuth } from '../../context/AuthContext';
 
 function CartSummary() {
   const navigate = useNavigate();
   const { items, subtotal } = useCart();
   const { items: cartItems } = useCart();
+  const { isLoggedIn } = useAuth();
 
   const total =
     typeof subtotal === 'number'
@@ -19,6 +21,14 @@ function CartSummary() {
     if (cartItems.length === 0) {
       toaster.create({
         description: '购物车内没有物品',
+        status: 'error',
+        duration: 2000,
+        isClosable: true,
+        position: 'top',
+      });
+    } else if (!isLoggedIn) {
+      toaster.create({
+        description: '请先登录',
         status: 'error',
         duration: 2000,
         isClosable: true,

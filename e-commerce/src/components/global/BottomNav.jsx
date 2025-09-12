@@ -1,19 +1,19 @@
 import { Box, Flex, IconButton, Text } from '@chakra-ui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-
+import { useMessages } from '../../context/MessageContext';
 import {
   FiHome,
   FiMessageSquare,
   FiShoppingCart,
   FiUser,
 } from 'react-icons/fi';
-import { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
 
 const BottomNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isLoggedIn } = useAuth();
+  const { hasNewMessages } = useMessages();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   return (
     <Box
@@ -24,24 +24,16 @@ const BottomNav = () => {
       bg="white"
       borderTop="1px solid #eaeaea"
       zIndex="1000"
-      maxW="400px"
+      maxW="420px"
       mx="auto"
     >
       <Flex justify="space-around" align="center" p={2}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Box display="flex" flexDirection="column" alignItems="center">
           <IconButton
             aria-label="首页"
             fontSize="24px"
             color={location.pathname === '/' ? '#187a46' : 'black'}
-            onClick={() => {
-              navigate('/');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            onClick={() => navigate('/')}
           >
             <FiHome />
           </IconButton>
@@ -49,11 +41,12 @@ const BottomNav = () => {
             首页
           </Text>
         </Box>
+
         <Box
           display="flex"
           flexDirection="column"
           alignItems="center"
-          justifyContent="center"
+          position="relative"
         >
           <IconButton
             aria-label="消息"
@@ -63,18 +56,23 @@ const BottomNav = () => {
           >
             <FiMessageSquare />
           </IconButton>
+          {hasNewMessages && isLoggedIn && (
+            <Box
+              position="absolute"
+              top="2px"
+              right="4px"
+              w="8px"
+              h="8px"
+              bg="red.500"
+              borderRadius="full"
+            />
+          )}
           <Text color={location.pathname === '/messages' ? '#187a46' : 'black'}>
-            {' '}
             消息
           </Text>
         </Box>
 
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Box display="flex" flexDirection="column" alignItems="center">
           <IconButton
             aria-label="购物车"
             fontSize="24px"
@@ -88,12 +86,7 @@ const BottomNav = () => {
           </Text>
         </Box>
 
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
+        <Box display="flex" flexDirection="column" alignItems="center">
           <IconButton
             aria-label="个人主页"
             fontSize="24px"

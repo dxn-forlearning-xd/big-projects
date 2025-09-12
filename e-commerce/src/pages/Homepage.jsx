@@ -9,7 +9,7 @@ import BottomNav from '../components/global/BottomNav';
 
 const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
-    <Box p={4} maxW="400px" mx="auto" bg="gray.50" mt="70px">
+    <Box p={4} maxW="420px" mx="auto" bg="gray.50" mt="70px">
       <Header></Header>
       <Slider></Slider>
       <Categories></Categories>

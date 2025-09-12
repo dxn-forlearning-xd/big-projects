@@ -4,12 +4,14 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 import { toaster } from '../ui/toaster';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
 
 function AddToCartBar({ product }) {
   const [qty, setQty] = useState(1);
   const { addToCart } = useCart();
   const disabled = !product;
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -90,7 +92,15 @@ function AddToCartBar({ product }) {
         <Button
           flex={1}
           borderRadius="lg"
-          onClick={handleBuyNow}
+          onClick={() => {
+            isLoggedIn
+              ? handleBuyNow()
+              : toaster.create({
+                  title: '请先登录',
+                  type: '',
+                  duration: 2000,
+                });
+          }}
           isDisabled={disabled}
           bg="orange.500"
           color="#ffffff"

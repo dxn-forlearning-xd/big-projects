@@ -16,13 +16,13 @@ import SearchPage from './pages/SearchPage';
 import LoginPage from './pages/LoginPage';
 import OrdersPage from './pages/OrdersPage';
 import { AuthProvider } from './context/AuthContext';
+import { MessageProvider } from './context/MessageContext';
 
 function App() {
   return (
-    <>
-      {' '}
+    <AuthProvider>
       <CartProvider>
-        <AuthProvider>
+        <MessageProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Homepage />} />
@@ -37,11 +37,11 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/orders" element={<OrdersPage />} />
             </Routes>
+            <Toaster />
           </BrowserRouter>
-          <Toaster />
-        </AuthProvider>
+        </MessageProvider>
       </CartProvider>
-    </>
+    </AuthProvider>
   );
 }
 

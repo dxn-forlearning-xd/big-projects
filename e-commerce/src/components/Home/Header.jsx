@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CiSearch, CiCamera } from 'react-icons/ci';
-import { IoIosQrScanner } from 'react-icons/io';
-import { VscBell } from 'react-icons/vsc';
+
 import {
   Input,
   Box,
@@ -38,7 +37,7 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      maxW="400px"
+      maxW="420px"
       mx="auto"
       py={3}
       px={4}

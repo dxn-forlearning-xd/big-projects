@@ -52,14 +52,14 @@ const LoginPage = () => {
 
   return (
     <Box>
-      <PageHeader PageTitle="欢迎" />
+      <PageHeader PageTitle="登录" />
 
       <Box
         p={4}
         maxW="420px"
         mx="auto"
         bg="gray.50"
-        minH="calc(100vh - 72px)"
+        minH="calc(100vh - 156px)"
         display="flex"
         flexDirection="column"
         justifyContent="center"

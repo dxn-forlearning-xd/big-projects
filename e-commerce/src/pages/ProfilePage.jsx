@@ -18,7 +18,6 @@ const ProfilePage = () => {
       <PageHeader PageTitle="个人主页" />
 
       <Box p={4} maxW="420px" mx="auto" bg="gray.50" minH="calc(100vh - 72px)">
-        {/* 用户信息区域 */}
         <Flex direction="column" align="center" mb={6}>
           <Image
             src={user.avatar}
@@ -36,7 +35,6 @@ const ProfilePage = () => {
           </Text>
         </Flex>
 
-        {/* 功能入口区域 */}
         <VStack spacing={4} mb={6}>
           <Button
             w="100%"
@@ -48,10 +46,8 @@ const ProfilePage = () => {
           >
             我的订单
           </Button>
-          {/* 可以在这里加其他功能入口，比如收藏、优惠券等 */}
         </VStack>
 
-        {/* 登出按钮放在底部 */}
         <Button
           w="100%"
           bg="gray.300"
