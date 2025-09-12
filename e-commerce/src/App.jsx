@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Toaster } from './components/ui/toaster';
@@ -10,29 +10,34 @@ import AllCategoriesPage from './pages/AllCategoriesPage';
 import CategoryPage from './pages/CategoryPage';
 import { CartProvider } from './context/CartContext';
 import CheckoutPage from './pages/CheckoutPage';
-import MessagesPage from './pages/MeesagesPage';
+import MessagesPage from './pages/MesagesPage';
 import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/SearchPage';
+import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <>
       {' '}
       <CartProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/categories" element={<AllCategoriesPage />} />
-            <Route path="/category/:slug" element={<CategoryPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/messages" element={<MessagesPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Routes>
-        </BrowserRouter>
-        <Toaster />
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/categories" element={<AllCategoriesPage />} />
+              <Route path="/category/:slug" element={<CategoryPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/messages" element={<MessagesPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
+          </BrowserRouter>
+          <Toaster />
+        </AuthProvider>
       </CartProvider>
     </>
   );

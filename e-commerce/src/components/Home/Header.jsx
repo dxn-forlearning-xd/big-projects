@@ -13,21 +13,31 @@ const Header = () => {
   const handleSearch = () => {
     if (keyword.trim()) {
       navigate(`/search?q=${encodeURIComponent(keyword)}`);
+    } else {
+      toaster.create({
+        title: '输入为空',
+        description: '请输入搜索内容',
+        type: 'failed',
+        duration: 2000,
+      });
     }
   };
 
   return (
     <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      maxW="420px"
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      maxW="400px"
       mx="auto"
       py={4}
       bg="#ffffff"
-      position="sticky"
-      top={0}
       zIndex="1000"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      boxShadow="0 4px 12px rgba(0, 0, 0, 0.05)"
     >
       <IconButton
         aria-label="扫码"

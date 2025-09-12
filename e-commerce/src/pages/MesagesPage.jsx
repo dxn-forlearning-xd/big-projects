@@ -1,8 +1,11 @@
 import { Box, Text } from '@chakra-ui/react';
 import PageHeader from '../components/global/PageHeader';
 import BottomNav from '../components/global/BottomNav';
+import { useAuth } from '../context/AuthContext';
 
 const MessagesPage = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <>
       <PageHeader PageTitle={'消息'}></PageHeader>

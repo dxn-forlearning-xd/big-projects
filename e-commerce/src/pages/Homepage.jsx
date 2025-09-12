@@ -7,14 +7,17 @@ import Categories from '../components/Home/Categories';
 import RecommendProducts from '../components/Home/RecommendProducts';
 import BottomNav from '../components/global/BottomNav';
 
-const Homepage = () => {
+const Homepage = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
-    <Box p={4} maxW="400px" mx="auto" bg="gray.50">
+    <Box p={4} maxW="400px" mx="auto" bg="gray.50" mt="70px">
       <Header></Header>
       <Slider></Slider>
       <Categories></Categories>
       <RecommendProducts></RecommendProducts>
-      <BottomNav></BottomNav>
+      <BottomNav
+        isLoggedIn={isLoggedIn}
+        setIsLoggedIn={setIsLoggedIn}
+      ></BottomNav>
     </Box>
   );
 };

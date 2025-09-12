@@ -55,7 +55,7 @@ const CategoryPage = () => {
         </Text>
       </HStack>
 
-      <Box p={4} bg="gray.50" minH="100vh" width="420px" mx="auto">
+      <Box p={4} bg="gray.50" minH="100vh" mx="auto" pb="100px">
         <Grid
           templateColumns="repeat(auto-fill, minmax(140px, 1fr))"
           gap={6}

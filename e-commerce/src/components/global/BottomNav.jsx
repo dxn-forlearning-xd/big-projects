@@ -1,5 +1,6 @@
 import { Box, Flex, IconButton, Text } from '@chakra-ui/react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 import {
   FiHome,
@@ -7,10 +8,13 @@ import {
   FiShoppingCart,
   FiUser,
 } from 'react-icons/fi';
+import { useState } from 'react';
 
 const BottomNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isLoggedIn } = useAuth();
+
   return (
     <Box
       position="fixed"
@@ -34,7 +38,10 @@ const BottomNav = () => {
             aria-label="首页"
             fontSize="24px"
             color={location.pathname === '/' ? '#187a46' : 'black'}
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
             <FiHome />
           </IconButton>
@@ -90,12 +97,22 @@ const BottomNav = () => {
           <IconButton
             aria-label="个人主页"
             fontSize="24px"
-            color={location.pathname === '/profile' ? '#187a46' : 'black'}
-            onClick={() => navigate('/profile')}
+            color={
+              ['/profile', '/login'].includes(location.pathname)
+                ? '#187a46'
+                : 'black'
+            }
+            onClick={() => navigate(isLoggedIn ? '/profile' : '/login')}
           >
             <FiUser />
           </IconButton>
-          <Text color={location.pathname === '/profile' ? '#187a46' : 'black'}>
+          <Text
+            color={
+              ['/profile', '/login'].includes(location.pathname)
+                ? '#187a46'
+                : 'black'
+            }
+          >
             个人主页
           </Text>
         </Box>

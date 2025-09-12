@@ -11,7 +11,8 @@ const PageHeader = ({ PageTitle }) => {
     if (
       location.pathname === '/messages' ||
       location.pathname === '/cart' ||
-      location.pathname === '/profile'
+      location.pathname === '/profile' ||
+      location.pathname === '/login'
     ) {
       navigate('/');
     } else {
