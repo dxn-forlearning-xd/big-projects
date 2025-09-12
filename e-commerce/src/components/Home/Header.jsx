@@ -7,8 +7,6 @@ import {
   Box,
   IconButton,
   Image,
-  Text,
-  VStack,
   HStack,
   Button,
 } from '@chakra-ui/react';
@@ -52,6 +50,9 @@ const Header = () => {
           boxSize="72px"
           objectFit="contain"
           mt="10px"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         />
         <IconButton
           aria-label="识图"

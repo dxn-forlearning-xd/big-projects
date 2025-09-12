@@ -33,7 +33,10 @@ const BottomNav = () => {
             aria-label="首页"
             fontSize="24px"
             color={location.pathname === '/' ? '#187a46' : 'black'}
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
             <FiHome />
           </IconButton>
