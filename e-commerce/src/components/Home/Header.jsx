@@ -3,7 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { CiSearch, CiCamera } from 'react-icons/ci';
 import { IoIosQrScanner } from 'react-icons/io';
 import { VscBell } from 'react-icons/vsc';
-import { Input, Box, IconButton } from '@chakra-ui/react';
+import {
+  Input,
+  Box,
+  IconButton,
+  Image,
+  Text,
+  VStack,
+  HStack,
+  Button,
+} from '@chakra-ui/react';
 import { toaster } from '../ui/toaster';
 
 const Header = () => {
@@ -31,84 +40,72 @@ const Header = () => {
       right={0}
       maxW="400px"
       mx="auto"
-      py={4}
+      py={3}
+      px={4}
       bg="#ffffff"
       zIndex="1000"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
       boxShadow="0 4px 12px rgba(0, 0, 0, 0.05)"
     >
-      <IconButton
-        aria-label="扫码"
-        borderRadius="50px"
-        bg="gray.200"
-        mr={4}
-        ml={4}
-        onClick={() =>
-          toaster.create({
-            title: '扫码',
-            description: '打开扫码功能',
-            type: 'success',
-            duration: 2000,
-          })
-        }
-      >
-        <IoIosQrScanner />
-      </IconButton>
-      <IconButton
-        aria-label="识图"
-        onClick={() =>
-          toaster.create({
-            title: '识图',
-            description: '打开识图功能',
-            type: 'success',
-            duration: 2000,
-          })
-        }
-        bg="gray.200"
-        borderTopLeftRadius="md"
-        borderBottomLeftRadius="md"
-        borderTopRightRadius="0"
-        borderBottomRightRadius="0"
-      >
-        <CiCamera />
-      </IconButton>
+      <HStack spacing={2}>
+        <Image
+          src="/logo.jpg"
+          alt="logo"
+          boxSize="72px"
+          objectFit="contain"
+          mt="10px"
+        />
+        <IconButton
+          aria-label="识图"
+          onClick={() =>
+            toaster.create({
+              title: '识图',
+              description: '打开识图功能',
+              type: 'success',
+              duration: 2000,
+            })
+          }
+          bg="gray.100"
+          borderRadius="50%"
+          ml="-6px"
+        >
+          {' '}
+          <CiCamera />{' '}
+        </IconButton>
+        <Input
+          placeholder="搜索商品"
+          flex={1}
+          borderRadius="md"
+          bg="gray.100"
+          border="none"
+          _focus={{
+            border: 'none',
+            boxShadow: 'none',
+            outline: 'none',
+          }}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
 
-      <Input
-        placeholder="搜索"
-        borderRadius="0"
-        bg="gray.200"
-        border="none"
-        _focus={{
-          border: 'none',
-          boxShadow: 'none',
-          outline: 'none',
-        }}
-        onChange={(e) => setKeyword(e.target.value)}
-      ></Input>
-      <IconButton
-        onClick={handleSearch}
-        aria-label="搜索"
-        bg="#27AE60"
-        color="#ffffff"
-        borderTopLeftRadius="0"
-        borderBottomLeftRadius="0"
-        borderTopRightRadius="md"
-        borderBottomRightRadius="md"
-      >
-        <CiSearch />
-      </IconButton>
-
-      <IconButton
-        borderRadius="50px"
-        bg="gray.200"
-        aria-label="通知"
-        mr={4}
-        ml={4}
-      >
-        <VscBell />
-      </IconButton>
+        <Button
+          onClick={handleSearch}
+          bg="#27AE60"
+          color="white"
+          borderRadius="md"
+          _hover={{ bg: '#219150' }}
+        >
+          搜索
+        </Button>
+        <Button
+          variant="ghost"
+          textDecoration="underline"
+          fontSize="10px"
+          color="gray.600"
+          _hover={{ bg: 'gray.100' }}
+          flexShrink={0}
+          px={1}
+        >
+          最近浏览
+        </Button>
+      </HStack>
     </Box>
   );
 };

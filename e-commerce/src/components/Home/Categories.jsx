@@ -39,22 +39,36 @@ const Categories = () => {
   return (
     <section>
       <Text
-        mt="10px"
-        pl={8}
-        color={'#123924'}
-        fontSize="xl"
-        fontWeight="bold"
+        color="#2b6150ff"
+        fontSize="1.5rem"
+        fontWeight="800"
         maxW="420px"
         mx="auto"
+        textAlign="center"
+        position="relative"
+        paddingBottom="16px"
+        letterSpacing="tight"
+        textTransform="uppercase"
+        _after={{
+          content: '""',
+          position: 'absolute',
+          bottom: '0',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '80px',
+          height: '3px',
+          background: 'linear-gradient(90deg, #0e2e24, #22b558ff)',
+          borderRadius: '2px',
+        }}
       >
-        分类
+        分类{' '}
       </Text>
 
       <Grid
         templateColumns="repeat(auto-fill, minmax(80px, 1fr))"
         gap={6}
         mx="auto"
-        p={4}
+        px="10px"
         maxW="420px"
       >
         {Object.keys(categoryThumbnails).length === 0

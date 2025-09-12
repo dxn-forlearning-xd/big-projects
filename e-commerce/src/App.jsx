@@ -14,6 +14,7 @@ import MessagesPage from './pages/MesagesPage';
 import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/SearchPage';
 import LoginPage from './pages/LoginPage';
+import OrdersPage from './pages/OrdersPage';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/orders" element={<OrdersPage />} />
             </Routes>
           </BrowserRouter>
           <Toaster />
