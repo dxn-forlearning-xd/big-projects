@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
 
   const user = {
     name: 'Demo 用户',
@@ -54,7 +54,7 @@ const ProfilePage = () => {
           borderRadius="md"
           _hover={{ bg: 'gray.400' }}
           onClick={() => {
-            setIsLoggedIn(false);
+            logout();
             navigate('/login');
           }}
         >

@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CiSearch, CiCamera } from 'react-icons/ci';
-import { IoLanguage } from 'react-icons/io5';
 
-import {
-  Input,
-  Box,
-  IconButton,
-  Image,
-  HStack,
-  Button,
-} from '@chakra-ui/react';
+import { Input, Box, IconButton, Image, HStack } from '@chakra-ui/react';
 import { toaster } from '../ui/toaster';
 
 const Header = () => {
@@ -93,9 +85,6 @@ const Header = () => {
           _hover={{ bg: '#219150' }}
         >
           <CiSearch />
-        </IconButton>
-        <IconButton aria-label="language" bg="gray.100" borderRadius="50%">
-          <IoLanguage />
         </IconButton>
       </HStack>
     </Box>

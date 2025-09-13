@@ -57,14 +57,12 @@ const Slider = () => {
       const data = await fetchWithTimeoutAndFallback(
         'https://api.example.com/products'
       );
-      setProducts(data);
     }
     loadProducts();
   }, []);
 
   return (
     <>
-      {' '}
       <div className={styles.container}>
         <div className={styles.card}>
           <div ref={sliderRef} className="keen-slider">
