@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { login } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
@@ -42,7 +42,7 @@ const LoginPage = () => {
     if (hasError) return;
 
     if (username === 'demo' && password === '123456') {
-      setIsLoggedIn(true);
+      login();
       navigate('/profile');
     } else {
       setUsernameError('用户未注册，请使用：用户名demo，密码123456  进行登录');

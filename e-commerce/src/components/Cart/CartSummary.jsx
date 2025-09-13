@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { Toaster, toaster } from '../../components/ui/toaster';
 import { useAuth } from '../../context/AuthContext';
+import { OrderProvider } from '../../context/OrderContext';
 
 function CartSummary() {
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ function CartSummary() {
           onClick={handleClick}
           isDisabled={count === 0}
         >
-          去付款
+          全部结算
         </Button>
       </VStack>
     </Box>

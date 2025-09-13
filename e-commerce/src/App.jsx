@@ -17,29 +17,32 @@ import LoginPage from './pages/LoginPage';
 import OrdersPage from './pages/OrdersPage';
 import { AuthProvider } from './context/AuthContext';
 import { MessageProvider } from './context/MessageContext';
+import { OrderProvider } from './context/OrderContext';
 
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <MessageProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/product/:id" element={<ProductDetailPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/categories" element={<AllCategoriesPage />} />
-              <Route path="/category/:slug" element={<CategoryPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/messages" element={<MessagesPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/orders" element={<OrdersPage />} />
-            </Routes>
-            <Toaster />
-          </BrowserRouter>
-        </MessageProvider>
+        <OrderProvider>
+          <MessageProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/product/:id" element={<ProductDetailPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/categories" element={<AllCategoriesPage />} />
+                <Route path="/category/:slug" element={<CategoryPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/messages" element={<MessagesPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/orders" element={<OrdersPage />} />
+              </Routes>
+              <Toaster />
+            </BrowserRouter>
+          </MessageProvider>
+        </OrderProvider>
       </CartProvider>
     </AuthProvider>
   );

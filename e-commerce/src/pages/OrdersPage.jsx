@@ -1,27 +1,10 @@
 import { Box, Text, VStack, HStack, Button, Badge } from '@chakra-ui/react';
 import PageHeader from '../components/global/PageHeader';
 import BottomNav from '../components/global/BottomNav';
+import { useOrders } from '../context/OrderContext';
 
 const OrdersPage = () => {
-  // 静态订单数据
-  const orders = [
-    {
-      id: '1001',
-      product: 'Demo 商品 A',
-      date: '2025-09-12',
-      amount: 2,
-      total: 199.9,
-      status: '已发货',
-    },
-    {
-      id: '1002',
-      product: 'Demo 商品 B',
-      date: '2025-09-10',
-      amount: 1,
-      total: 99.9,
-      status: '待支付',
-    },
-  ];
+  const { orders } = useOrders();
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -49,33 +32,43 @@ const OrdersPage = () => {
               p={4}
               bg="white"
               borderRadius="md"
-              boxShadow="sm"
+              boxShadow="0 4px 12px rgba(0, 0, 0, 0.08)"
             >
               <HStack justifyContent="space-between" mb={2}>
-                <Text fontWeight="bold">{order.product}</Text>
+                <Text fontWeight="bold">订单号: {order.id}</Text>
                 <Badge colorScheme={getStatusColor(order.status)}>
                   {order.status}
                 </Badge>
               </HStack>
+
+              <VStack spacing={2} align="stretch" mb={2}>
+                {order.items.map((item) => (
+                  <HStack key={item.id} justify="space-between">
+                    <Text>
+                      {item.title} × {item.qty}
+                    </Text>
+                    <Text>￥{(item.price * item.qty).toFixed(2)}</Text>
+                  </HStack>
+                ))}
+              </VStack>
+
               <Text fontSize="sm" color="gray.500">
-                订单号: {order.id}
+                下单时间: {new Date(order.createdAt).toLocaleString()}
               </Text>
               <Text fontSize="sm" color="gray.500">
-                下单日期: {order.date}
+                商品数: {order.items.reduce((s, it) => s + it.qty, 0)}
               </Text>
               <Text fontSize="sm" color="gray.500">
-                数量: {order.amount}
+                总价: ¥{order.total.toFixed(2)}
               </Text>
-              <Text fontSize="sm" color="gray.500">
-                总价: ¥{order.total}
-              </Text>
-              {order.status === '待支付' && (
-                <Button mt={2} colorScheme="teal" size="sm">
-                  去支付
-                </Button>
-              )}
             </Box>
           ))}
+
+          {orders.length === 0 && (
+            <Text color="gray.500" textAlign="center">
+              暂无订单
+            </Text>
+          )}
         </VStack>
       </Box>
       <BottomNav />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CiSearch, CiCamera } from 'react-icons/ci';
+import { IoLanguage } from 'react-icons/io5';
 
 import {
   Input,
@@ -68,8 +69,7 @@ const Header = () => {
           borderRadius="50%"
           ml="-6px"
         >
-          {' '}
-          <CiCamera />{' '}
+          <CiCamera />
         </IconButton>
         <Input
           placeholder="搜索商品"
@@ -85,26 +85,18 @@ const Header = () => {
           onChange={(e) => setKeyword(e.target.value)}
         />
 
-        <Button
+        <IconButton
           onClick={handleSearch}
           bg="#27AE60"
           color="white"
           borderRadius="md"
           _hover={{ bg: '#219150' }}
         >
-          搜索
-        </Button>
-        <Button
-          variant="ghost"
-          textDecoration="underline"
-          fontSize="10px"
-          color="gray.600"
-          _hover={{ bg: 'gray.100' }}
-          flexShrink={0}
-          px={1}
-        >
-          最近浏览
-        </Button>
+          <CiSearch />
+        </IconButton>
+        <IconButton aria-label="language" bg="gray.100" borderRadius="50%">
+          <IoLanguage />
+        </IconButton>
       </HStack>
     </Box>
   );
