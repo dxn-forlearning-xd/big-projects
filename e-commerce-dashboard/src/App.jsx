@@ -1,41 +1,40 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
-import SideBar from './global/SideBar';
-import Inventory from './scenes/Inventory';
-import Orders from './scenes/Orders';
-import Contacts from './scenes/Contacts';
-import BarChart from './scenes/BarChart';
-import PieChart from './scenes/PieChart';
-import LineChart from './scenes/LineChart';
+import { ColorModeContext, useMode } from './theme';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import TopBar from './components/global/TopBar';
+import SideBar from './components/global/SideBar';
+import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
+import Orders from './pages/Orders';
+import Bar from './pages/Bar';
+import Line from './pages/Line';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
-  return (
-    <div>
-      <main style={{ display: 'flex', flexDirection: 'row', height: '100vh' }}>
-        <SideBar />
+  const [theme, colorMode] = useMode();
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
-            margin: '20px',
-          }}
-        >
-          <div>
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <SideBar />
+          <main className="content">
+            <TopBar />
+
             <Routes>
-              <Route path="/" element={<Inventory />} />
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/orders" element={<Orders />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/barchart" element={<BarChart />} />
-              <Route path="/piechart" element={<PieChart />} />
-              <Route path="/linechart" element={<LineChart />} />
+              <Route path="bar" element={<Bar />} />
+              <Route path="/line" element={<Line />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
             </Routes>
-          </div>
+          </main>
         </div>
-      </main>
-    </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
