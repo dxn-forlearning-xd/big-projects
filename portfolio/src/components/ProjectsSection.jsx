@@ -2,8 +2,8 @@ const projects = [
   {
     title: '电商购物平台',
     img: '/imgs/e-commerce.png',
-    demo: 'https://e-commerce-dxn.netlify.app/',
-    repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce',
+    demo: 'https://ecommerce-dxn.netlify.app/',
+    repo: 'https://github.com/dxn-forlearning-xd/ecommerce-project/tree/master/app',
     stack: ['React', 'Chakra UI'],
   },
   {
@@ -11,7 +11,7 @@ const projects = [
     img: '/imgs/e-commerce-dashboard.png',
     demo: 'https://e-commerce-dashboard-dxn.netlify.app/',
     repo: 'https://github.com/dxn-forlearning-xd/big-projects/tree/main/e-commerce-dashboard',
-    stack: ['React', 'Ant Design', 'Nivo Chart'],
+    stack: ['React', 'Material UI', 'Nivo Chart'],
   },
   {
     title: '众筹页面',

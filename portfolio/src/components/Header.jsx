@@ -79,12 +79,12 @@ const Header = ({ language, setLanguage }) => {
         >
           {language === 'en' ? 'About Me' : '关于我'}
         </button>
-        <button
+        {/* <button
           className="p-2 rounded-full border border-white bg-white transition cursor-pointer hover:scale-105 "
           onClick={toggleLanguage}
         >
           <img src="/imgs/language.png" alt="Language" className="w-7 h-7" />
-        </button>
+        </button> */}
       </div>
     </header>
   );
